@@ -31,7 +31,9 @@ func (tmdb *TMDb) DiscoverMovie(options map[string]string) (*MoviePagedResults, 
 		"with_genres":              {},
 		"with_keywords":            {},
 		"with_people":              {},
-		"year":                     {}}
+		"year":                     {},
+		"region":                   {},
+		"with_release_type":        {}}
 	optionsString := getOptionsString(options, availableOptions)
 	var results MoviePagedResults
 	uri := fmt.Sprintf("%s/discover/movie?api_key=%s%s", baseURL, tmdb.apiKey, optionsString)
