@@ -501,6 +501,7 @@ func (tmdb *TMDb) GetMovieLists(id int, options map[string]string) (*MovieLists,
 func (tmdb *TMDb) GetMovieNowPlaying(options map[string]string) (*MovieDatedResults, error) {
 	var availableOptions = map[string]struct{}{
 		"page":     {},
+		"region":   {},
 		"language": {}}
 	var nowPlaying MovieDatedResults
 	optionsString := getOptionsString(options, availableOptions)
@@ -514,6 +515,7 @@ func (tmdb *TMDb) GetMovieNowPlaying(options map[string]string) (*MovieDatedResu
 func (tmdb *TMDb) GetMoviePopular(options map[string]string) (*MoviePagedResults, error) {
 	var availableOptions = map[string]struct{}{
 		"page":     {},
+		"region":   {},
 		"language": {}}
 	var popular MoviePagedResults
 	optionsString := getOptionsString(options, availableOptions)
@@ -567,6 +569,7 @@ func (tmdb *TMDb) GetMovieSimilar(id int, options map[string]string) (*MoviePage
 func (tmdb *TMDb) GetMovieTopRated(options map[string]string) (*MoviePagedResults, error) {
 	var availableOptions = map[string]struct{}{
 		"page":     {},
+		"region":   {},
 		"language": {}}
 	var topRated MoviePagedResults
 	optionsString := getOptionsString(options, availableOptions)
@@ -618,7 +621,9 @@ func (tmdb *TMDb) GetMovieVideos(id int, options map[string]string) (*MovieVideo
 func (tmdb *TMDb) GetMovieUpcoming(options map[string]string) (*MovieDatedResults, error) {
 	var availableOptions = map[string]struct{}{
 		"page":     {},
-		"language": {}}
+		"language": {},
+		"region":   {},
+	}
 	var upcoming MovieDatedResults
 	optionsString := getOptionsString(options, availableOptions)
 	uri := fmt.Sprintf("%s/movie/upcoming?api_key=%s%s", baseURL, tmdb.apiKey, optionsString)
